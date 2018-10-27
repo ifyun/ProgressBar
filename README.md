@@ -37,7 +37,7 @@ Add the dependency
     	    app:progressWidth="16dp"
     	    tools:progress="30" />
 ```
-If you want a fanshaped progress bar, let progressWidth >= max(layout_width, layout_height)
+If you want a fanshaped progress bar, let progressWidth >= min(layout_width, layout_height)
 ```java
 	cirlceProgressBar.setMinProgress(-100)   //minProgress can be negative, default is 0
     	circleProgressBar.setMaxProgress(100)    //default value is 100
