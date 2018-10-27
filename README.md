@@ -34,8 +34,7 @@ Add the dependency
     	    android:text="Circle ProgressBar"
     	    app:progressBackColor=""#e0e0e0"
     	    app:progressColor="#80cc33"
-    	    app:progressWidth="16dp"
-    	    tools:progress="30" />
+    	    app:progressWidth="16dp" />
 ```
 If you want a fanshaped progress bar, let progressWidth >= min(layout_width, layout_height)
 ```java
