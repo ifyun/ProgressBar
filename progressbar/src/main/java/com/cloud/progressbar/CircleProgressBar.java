@@ -25,6 +25,8 @@ public class CircleProgressBar extends AppCompatTextView {
     private RectF mBackArea;
     private RectF mProgressArea;
 
+    private boolean mIsFan = false;     //weather to draw fan shape
+
     public CircleProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
         initializeAttribute(context, attrs);
@@ -61,20 +63,30 @@ public class CircleProgressBar extends AppCompatTextView {
         mProgressBackPaint.setAntiAlias(true);
         mProgressPaint.setColor(mProgressColor);
         mProgressBackPaint.setColor(mProgressBackColor);
-        mProgressPaint.setStyle(Paint.Style.STROKE);
-        mProgressBackPaint.setStyle(Paint.Style.STROKE);
-        mProgressPaint.setStrokeWidth(mProgressWidth);
-        mProgressBackPaint.setStrokeWidth(mProgressWidth);
     }
 
     private void initializeProgressArea() {
         int width = getMeasuredWidth(), height = getMeasuredHeight();
         //Get the radius of circle;
-        int radius = width < height ? width / 2 : height / 2;
-        radius -= mProgressWidth / 2;
+        float radius = width < height ? (float) width / 2 : (float) height / 2;
 
         int centerX = width / 2;
         int centerY = height / 2;
+
+        if (Math.round(mProgressWidth) < radius) {
+            //STROKE, draw ring
+            mIsFan = false;
+            mProgressPaint.setStyle(Paint.Style.STROKE);
+            mProgressBackPaint.setStyle(Paint.Style.STROKE);
+            mProgressPaint.setStrokeWidth(mProgressWidth);
+            mProgressBackPaint.setStrokeWidth(mProgressWidth);
+            radius -= mProgressWidth / 2;
+        } else {
+            //FILL, draw fan shape
+            mIsFan = true;
+            mProgressPaint.setStyle(Paint.Style.FILL);
+            mProgressBackPaint.setStyle(Paint.Style.FILL);
+        }
 
         mBackArea.left = mProgressArea.left = centerX - radius;
         mBackArea.top = mProgressArea.top = centerY - radius;
@@ -87,13 +99,13 @@ public class CircleProgressBar extends AppCompatTextView {
         initializeProgressArea();
 
         //Draw progress background
-        canvas.drawArc(mBackArea, 0, 360, false, mProgressBackPaint);
+        canvas.drawArc(mBackArea, 0, 360, mIsFan, mProgressBackPaint);
 
         if (mProgress > mMinProgress && mProgress <= mMaxProgress) {
             //Calculate the angle of progress
             float progressAngle = ((float) (mProgress - mMinProgress) / (mMaxProgress - mMinProgress)) * 360;
             //Draw current progress
-            canvas.drawArc(mProgressArea, -90, progressAngle, false, mProgressPaint);
+            canvas.drawArc(mProgressArea, -90, progressAngle, mIsFan, mProgressPaint);
         }
 
         super.onDraw(canvas);
