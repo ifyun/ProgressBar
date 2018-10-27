@@ -5,6 +5,23 @@ Cirlce ProgressBar|Progress Button|
 ------------------|---------------|
 ![Circle ProgressBar](https://github.com/imcloudfloating/Images/blob/master/circle_progress_bar.gif?raw=true)|![Progress Button](https://github.com/imcloudfloating/Images/blob/master/progress_button.gif?raw=true)
 
+## Gradle:
+Add it in your root build.gradle at the end of repositories:
+```gradle
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+Add the dependency
+```gradle
+	dependencies {
+	        implementation 'com.github.imcloudfloating:ProgressBar:Tag'
+	}
+```
+
 ## Use Cirlce ProgressBar:
 ```xml
 <com.cloud.progressbar.CircleProgressBar
