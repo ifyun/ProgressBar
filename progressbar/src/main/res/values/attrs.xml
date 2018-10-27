@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="progressColor" format="color" />
+    <attr name="progressBackColor" format="color" />
+    <attr name="progress" format="integer" />
+    <attr name="minProgress" format="integer" />
+    <attr name="maxProgress" format="integer" />
+
+    <declare-styleable name="ProgressButton">
+        <attr name="progressColor" />
+        <attr name="progressBackColor" />
+        <attr name="buttonColor" format="color" />
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="progress" />
+        <attr name="minProgress" />
+        <attr name="maxProgress" />
+        <attr name="progressMargin" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleProgressBar">
+        <attr name="progress" />
+        <attr name="minProgress" />
+        <attr name="maxProgress" />
+        <attr name="progressColor" />
+        <attr name="progressBackColor" />
+        <attr name="progressWidth" format="dimension" />
+    </declare-styleable>
+
+</resources>
