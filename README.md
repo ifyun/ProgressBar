@@ -2,6 +2,7 @@
 
 ![Stars](https://img.shields.io/github/stars/imcloudfloating/ProgressBar.svg)
 ![Forks](https://img.shields.io/github/forks/imcloudfloating/ProgressBar.svg)
+![License](https://img.shields.io/github/license/imcloudfloating/ProgressBar.svg)
 
 ### Contains CircleProgressBar and ProgressButton.
 
