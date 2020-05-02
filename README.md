@@ -1,4 +1,8 @@
 # ProgressBar
+
+![Stars](https://img.shields.io/github/stars/imcloudfloating/ProgressBar.svg)
+![Forks](https://img.shields.io/github/forks/imcloudfloating/ProgressBar.svg)
+
 ### Contains CircleProgressBar and ProgressButton.
 
 Cirlce ProgressBar|Progress Button|
